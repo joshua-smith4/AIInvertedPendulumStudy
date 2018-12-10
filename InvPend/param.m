@@ -40,7 +40,7 @@ P.C = [1 0 0 0;
 P.controller = 1;
 
 % change this to point to any random forest model file
-randForestModelFilename = 'rand_forest_model.mat';
+randForestModelFilename = 'rand_forest_model_exp.mat';
 
 rf = load(randForestModelFilename);
 P.rf = rf.rf;
