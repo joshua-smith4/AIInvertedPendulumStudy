@@ -3,7 +3,7 @@ function u = controller(x,P)
 % P is the structure from param 
 % u is the scalar output from the controller
 % Add Controller Code Here
-% [y,~,~] = netSimpleFunc2(x);
+
 switch P.controller
     case 0
         u = -P.K*x;

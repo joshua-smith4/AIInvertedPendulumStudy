@@ -1,23 +1,21 @@
 function [x,u] = loadData(t)
     switch t
         case 0
-            x_clean = load('x_clean');
-            u_clean = load('u_clean');
-            x = x_clean.x.data';
-            u = u_clean.u.data';
+            x_train1 = load('x_train1');
+            u_train1 = load('u_train1');
+            x = x_train1.x.data';
+            u = u_train1.u.data';
         case 1
-            x_noisy = load('x_noisy');
-            u_noisy = load('u_noisy');
-            x = x_noisy.x.data';
-            u = u_noisy.u.data';
+            x_train2 = load('x_train2');
+            u_train2 = load('u_train2');
+            x = x_train2.x.data';
+            u = u_train2.u.data';
         case 2
-            x_clean = load('x_clean');
-            u_clean = load('u_clean');
-            x_noisy = load('x_noisy');
-            u_noisy = load('u_noisy');
-            x = [x_clean.x.data' x_noisy.x.data'];
-            u = [u_clean.u.data' u_noisy.u.data'];
-            disp(size(x));
-            disp(size(u));
+            x_train1 = load('x_train1');
+            u_train1 = load('u_train1');
+            x_train2 = load('x_train2');
+            u_train2 = load('u_train2');
+            x = [x_train1.x.data' x_train2.x.data'];
+            u = [u_train1.u.data' u_train2.u.data'];
     end
 end
