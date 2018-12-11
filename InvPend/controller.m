@@ -10,12 +10,10 @@ switch P.controller
     case 1
         u = fc_net(x);
     case 2
-        u = fc_noisy(x);
-    case 3
         u = predict(P.rf1, x');
-    case 4
+    case 3
         u = predict(P.rf2, x');
-    case 5
+    case 4
         u = predict(P.svm, x');
 end
 end

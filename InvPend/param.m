@@ -34,10 +34,9 @@ P.K = lqr(P.A,P.B,P.Q,P.R);
 % Select the controller to use
 % 0 for lqr
 % 1 for fully connected network trained on clean data
-% 2 for fully connected network trained on noisy data
-% 3 for random forest 1
-% 4 for random forest 2
-% 5 for svm
+% 2 for random forest 1
+% 3 for random forest 2
+% 4 for svm
 P.controller = 0;
 
 % change this to point to any random forest model file
