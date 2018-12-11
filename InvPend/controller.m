@@ -12,8 +12,10 @@ switch P.controller
     case 2
         u = fc_noisy(x);
     case 3
-        u = predict(P.rf, x');
+        u = predict(P.rf1, x');
     case 4
+        u = predict(P.rf2, x');
+    case 5
         u = predict(P.svm, x');
 end
 end

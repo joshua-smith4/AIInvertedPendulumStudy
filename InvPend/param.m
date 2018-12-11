@@ -15,7 +15,7 @@ P.r  = 0.02;
 
 % Define the Performance weightings  Q, R here
 
-P.Q = eye(2);
+P.Q = [1 0 0 0;0 1 0 0;0 0 0 0;0 0 0 0];
 P.R = 1;
 
 % Define the dynamic and control matrices  P.A, P.B, P.C here
@@ -29,21 +29,27 @@ P.C = [1 0 0 0;
     0 1 0 0];
 
 % Define anything else for the controller you might need 
-[P.K,~,~] = lqr(P.A,P.B,P.C'*P.Q*P.C,P.R);
+P.K = lqr(P.A,P.B,P.Q,P.R);
 
 % Select the controller to use
 % 0 for lqr
 % 1 for fully connected network trained on clean data
 % 2 for fully connected network trained on noisy data
-% 3 for random forest
-% 4 for svm
-P.controller = 1;
+% 3 for random forest 1
+% 4 for random forest 2
+% 5 for svm
+P.controller = 0;
 
 % change this to point to any random forest model file
-randForestModelFilename = 'rand_forest_model_exp.mat';
+randForestModelFilename1 = 'rand_forest_model.mat';
 
-rf = load(randForestModelFilename);
-P.rf = rf.rf;
+rf = load(randForestModelFilename1);
+P.rf1 = rf.rf;
+
+randForestModelFilename2 = 'rand_forest_model_exp.mat';
+
+rf = load(randForestModelFilename2);
+P.rf2 = rf.rf;
 
 svmModelFilename = 'svm_model.mat';
 
